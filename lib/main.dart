@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learning/pages/home.dart';
+// import 'package:learning/pages/home.dart';
+import 'package:learning/pages/lending.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         primaryColor: Colors.white
       ),
-      home: HomePage(title: '项目列表'),
+      home: LendingPage(),
       debugShowCheckedModeBanner: false
     );
   }
