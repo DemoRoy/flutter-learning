@@ -7,7 +7,7 @@ class LendingPage extends StatelessWidget {
       body: Container(
         width: 200,
         height: 340,
-        margin: EdgeInsets.all(80.0),
+        margin: EdgeInsets.only(top: 200, left: 80, right: 80),
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: const Alignment(0.0, -1.0),
@@ -41,13 +41,15 @@ class LendingPage extends StatelessWidget {
                 child: RichText(
                   text: TextSpan(
                       style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w900,
-                          fontFamily: 'Georgia',
-                          letterSpacing: 4,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w900,
+                        fontFamily: 'Georgia',
+                        letterSpacing: 4,
                       ),
                       children: <TextSpan>[
-                        TextSpan(text: 'Lorem ipsum dolor sit amet, consec etur',),
+                        TextSpan(
+                          text: 'Lorem ipsum dolor sit amet, consec etur',
+                        ),
                         TextSpan(
                             text: 'ipsum',
                             style: TextStyle(
@@ -58,13 +60,25 @@ class LendingPage extends StatelessWidget {
             ),
             Container(
               width: 200,
-              child: Text(
-                'This is my Flutter App Demo.I\’m a new flutter dev.But I like it very mach.',
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 15
-                ),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    'This is my Flutter App Demo.I\’m a new flutter dev.But I like it very mach.',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  Container(
+                    child: FlatButton(
+                      child: Text('立即登录'),
+                      textColor: Colors.blue,
+                      onPressed: () async {
+                        var result = await Navigator.pushNamed(context, 'login', arguments: '我是命名路由的传入参数');
+                        print('路由返回值: $result');
+                      },
+                    ),
+                  )
+                ],
               ),
             )
           ],

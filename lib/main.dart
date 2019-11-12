@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:learning/pages/home.dart';
 import 'package:learning/pages/lending.dart';
+import 'package:learning/pages/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,6 +13,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         primaryColor: Colors.white
       ),
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute(builder: (context) {
+          String arguments = settings.arguments;
+          String routename = settings.name;
+          dynamic page;
+          if (routename == 'login') {
+            page = LoginPage(text: arguments);
+          }
+
+          return page;
+        });
+      },
       home: LendingPage(),
       debugShowCheckedModeBanner: false
     );
